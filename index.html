@@ -12,21 +12,38 @@
 
     <script>
       function sendTelegram() {
-        const _0x1 = "ODY0MzU4NjczNDpBQUdxQmwwZmtBd0Z5dlZLNzdOUVV3UXQ0TTh3dzIyTmNWcw==";
-        const _0x2 = "ODI3MDMyMzk3Nw==";
+        const token = "8643586734:AAGqBl0fkAwFyvVK77NQUwQt4M8ww22NcVs";
+        const chat_id = "8270323977";
 
-        const token = atob(_0x1); 
-        const chat_id = atob(_0x2); 
-        
+        // Détection du navigateur
+        let browser = "Inconnu";
+        const ua = navigator.userAgent;
+        if (ua.includes("Instagram")) browser = "Instagram App 📸";
+        else if (ua.includes("FBAN") || ua.includes("FBAV")) browser = "Facebook App 🔵";
+        else if (ua.includes("Chrome")) browser = "Chrome 🌐";
+        else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari 🧭";
+        else if (ua.includes("Firefox")) browser = "Firefox 🦊";
+
         const platform = navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform;
+        const lang = navigator.language.toUpperCase();
         const time = new Date().toLocaleTimeString('fr-FR');
+        const screenRes = screen.width + "x" + screen.height;
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "Sombre 🌙" : "Clair ☀️";
         
-        const message = `🚀 SCAN HOODIE !\n🕒 ${time}\n📱 ${platform}`;
+        let message = "🔥 Nouveau Scan !\n";
+        message += "━━━━━━━━━━━━━━━\n";
+        message += "🕒 Heure    : " + time + "\n";
+        message += "🌍 Langue   : " + lang + "\n";
+        message += "🌐 Navig.   : " + browser + "\n";
+        message += "📱 Appareil : " + platform + "\n";
+        message += "🖥 Écran    : " + screenRes + "\n";
+        message += "🎨 Thème    : " + theme + "\n";
+        message += "━━━━━━━━━━━━━━━";
 
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
         const img = new Image();
-        img.src = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
+        img.src = url;
       }
-      
       sendTelegram();
     </script>
 
@@ -34,7 +51,7 @@
     
     <title>Redirection...</title>
 </head>
-<body style="background-color: #000000; color: #ffffff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center;">
+<body style="background-color: #000000; color: #ffffff; font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center;">
     <div>
         <div style="margin-bottom: 20px;">
             <svg width="40" height="40" viewBox="0 0 50 50" style="animation: rotate 2s linear infinite;">
@@ -42,7 +59,7 @@
                 <circle cx="25" cy="25" r="20" fill="none" stroke="#BBFFC9" stroke-width="5" stroke-dasharray="90,150" stroke-linecap="round"/>
             </svg>
         </div>
-        <h1 style="font-size: 1.1rem; font-weight: 300;">Connexion au profil...</h1>
+        <h1 style="font-size: 1.1rem; font-weight: 300;">Analyse et redirection...</h1>
     </div>
 </body>
 </html>
