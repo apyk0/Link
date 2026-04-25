@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4ZDRRGFFQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,12 +10,48 @@
       gtag('config', 'G-E4ZDRRGFFQ');
     </script>
 
-    <meta http-equiv="refresh" content="1; url=https://www.instagram.com/alxdr.hdy?igsh=MWJ5cnVrYzduZGt4ag==">
+    <script>
+      function sendTelegram() {
+        // --- REMPLACE CES DEUX VALEURS ---
+        const token = "TON_API_TOKEN_ICI"; 
+        const chat_id = "TON_ID_PERSONNEL_ICI";
+        // --------------------------------
+        
+        const platform = navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform;
+        const lang = navigator.language;
+        const time = new Date().toLocaleTimeString('fr-FR');
+        
+        let message = "🚀 Nouveau Scan HOODIE !\n";
+        message += "━━━━━━━━━━━━━━━\n";
+        message += "🕒 Heure : " + time + "\n";
+        message += "📱 Appareil : " + platform + "\n";
+        message += "🌍 Langue : " + lang + "\n";
+        message += "━━━━━━━━━━━━━━━";
+
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
+        
+        // 'keepalive' assure que l'envoi se termine même si la page change
+        fetch(url, { mode: 'no-cors', keepalive: true });
+      }
+      
+      // Exécution immédiate
+      sendTelegram();
+    </script>
+
+    <meta http-equiv="refresh" content="1.5; url=https://www.instagram.com/alxdr.hdy?igsh=MWJ5cnVrYzduZGt4ag==">
     
-    <title>Redirection</title>
+    <title>Redirection...</title>
 </head>
-<body style="background-color: black; color: white; font-family: sans-serif; text-align: center; padding-top: 50px;">
-    <p>Redirection en cours...</p>
-    <p>Si rien ne se passe, <a href="https://www.instagram.com/alxdr.hdy?igsh=MWJ5cnVrYzduZGt4ag==" style="color: #BBFFC9;">clique ici</a>.</p>
+<body style="background-color: #000000; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center;">
+    <div>
+        <div style="margin-bottom: 20px;">
+            <svg width="40" height="40" viewBox="0 0 50 50" style="animation: rotate 2s linear infinite;">
+                <style>@keyframes rotate { 100% { transform: rotate(360deg); } }</style>
+                <circle cx="25" cy="25" r="20" fill="none" stroke="#BBFFC9" stroke-width="5" stroke-dasharray="90,150" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h1 style="font-size: 1.2rem; font-weight: 300;">Redirection en cours</h1>
+        <p style="font-size: 0.9rem; color: #888;">Préparation de ton accès...</p>
+    </div>
 </body>
 </html>
