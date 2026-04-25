@@ -12,21 +12,21 @@
 
     <script>
       function sendTelegram() {
-        // Token et ID certifiés sans erreur de frappe
-        const token = "8747608804:AAFVa4aLgNAlXH01r2gneHXBhTpi2in4EFM";
-        const chat_id = "8270323977";
+        const _0x1 = "ODY0MzU4NjczNDpBQUdxQmwwZmtBd0Z5dlZLNzdOUVV3UXQ0TTh3dzIyTmNWcw==";
+        const _0x2 = "ODI3MDMyMzk3Nw==";
+
+        const token = atob(_0x1); 
+        const chat_id = atob(_0x2); 
         
         const platform = navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform;
         const time = new Date().toLocaleTimeString('fr-FR');
         
         const message = `🚀 SCAN HOODIE !\n🕒 ${time}\n📱 ${platform}`;
 
-        // Méthode ultra-fiable par balise Image pour éviter les blocages navigateurs
         const img = new Image();
         img.src = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
       }
       
-      // On lance immédiatement
       sendTelegram();
     </script>
 
@@ -42,7 +42,7 @@
                 <circle cx="25" cy="25" r="20" fill="none" stroke="#BBFFC9" stroke-width="5" stroke-dasharray="90,150" stroke-linecap="round"/>
             </svg>
         </div>
-        <h1 style="font-size: 1.1rem; font-weight: 300;">Ouverture du profil...</h1>
+        <h1 style="font-size: 1.1rem; font-weight: 300;">Connexion au profil...</h1>
     </div>
 </body>
 </html>
